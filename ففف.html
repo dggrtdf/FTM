@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع فاطمة محمد</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #ffe6f0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #e91e63;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #ad1457 3px solid;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        header ul li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header #branding {
+            float: left;
+        }
+
+        header #branding h1 {
+            margin: 0;
+        }
+
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+
+        #showcase {
+            min-height: 400px;
+            background: url('https://source.unsplash.com/random/1600x900?pink') no-repeat center center/cover;
+            text-align: center;
+            color: #fff;
+        }
+
+        #showcase h1 {
+            margin-top: 100px;
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        #showcase p {
+            font-size: 20px;
+        }
+
+        section {
+            padding: 20px 0;
+            border-bottom: #e0e0e0 1px solid;
+        }
+
+        footer {
+            background: #ad1457;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        #about, #contact {
+            margin: 20px 0;
+        }
+
+        h2 {
+            color: #e91e63;
+        }
+
+        form label, form input, form textarea, form button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        form input, form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background: #e91e63;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>فاطمة محمد</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#showcase">الرئيسية</a></li>
+                    <li><a href="#about">من أنا</a></li>
+                    <li><a href="#contact">تواصل معي</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="showcase">
+        <div class="container">
+            <h1>مرحبًا بكم في موقعي الشخصي</h1>
+            <p>استكشفوا أعمالي وتعرفوا عليّ أكثر</p>
+        </div>
+    </section>
+    <main>
+        <section id="about" class="fade-in">
+            <div class="container">
+                <h2>من أنا</h2>
+                <p>أنا فاطمة محمد،طالبه سادس مابيه حيل .</p>
+            </div>
+        </section>
+        <section id="contact" class="fade-in">
+            <div class="container">
+                <h2>تواصل معي</h2>
+                <form action="#" method="post">
+                    <label for="name">الاسم:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">البريد الإلكتروني:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">الرسالة:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    
+                    <button type="submit">إرسال</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 فاطمة محمد. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+    <script>
+        // يمكن إضافة وظائف الجافا سكريبت هنا
+        console.log("مرحبًا بكم في موقع فاطمة محمد");
+    </script>
+</body>
+</html>
