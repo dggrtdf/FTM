@@ -1,185 +1,249 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع فاطمة محمد</title>
+    <title>عالمي الساحر |نارا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
-            background: #ffe6f0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(45deg, #ffb6c1, #ff69b4);
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* أنيميشن السحب */
+        .cloud {
+            position: fixed;
+            font-size: 50px;
+            animation: cloudMove 20s linear infinite;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        /* نجوم لامعة */
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
         }
 
         header {
-            background: #e91e63;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #ad1457 3px solid;
+            text-align: center;
+            padding: 100px 0 60px;
+            position: relative;
         }
 
-        header a {
+        h1 {
             color: #fff;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: float 3s ease-in-out infinite;
+            background: linear-gradient(45deg, #ffffff, #ffdde1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .teddy-bear {
+            font-size: 100px;
+            animation: dance 4s ease-in-out infinite;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .bio {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 30px;
+            border-radius: 25px;
+            margin: 25px 0;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .bio:hover {
+            transform: translateY(-5px) rotate(1deg);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        /* تصميم خاص لرابط التليجرام */
+        .telegram-btn {
+            background: #0088cc;
+            color: white !important;
+            padding: 12px 25px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,136,204,0.3);
         }
 
-        header ul {
-            padding: 0;
-            list-style: none;
+        .telegram-btn:hover {
+            transform: scale(1.1);
+            background: #0077b3;
         }
 
-        header ul li {
-            display: inline;
-            padding: 0 20px 0 20px;
+        @keyframes cloudMove {
+            0% { transform: translateX(-100vw); }
+            100% { transform: translateX(100vw); }
         }
 
-        header #branding {
-            float: left;
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
 
-        header #branding h1 {
-            margin: 0;
+        @keyframes dance {
+            0%, 100% { transform: rotate(-5deg) translateY(0); }
+            50% { transform: rotate(5deg) translateY(-20px); }
         }
 
-        header nav {
-            float: right;
-            margin-top: 10px;
+        /* فقاعة رسائل متحركة */
+        .message-bubble {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            animation: bubbleFloat 2s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 999;
         }
 
-        #showcase {
-            min-height: 400px;
-            background: url('https://source.unsplash.com/random/1600x900?pink') no-repeat center center/cover;
-            text-align: center;
-            color: #fff;
+        @keyframes bubbleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        #showcase h1 {
-            margin-top: 100px;
-            font-size: 55px;
-            margin-bottom: 10px;
+        /* تأثير إشعار التليجرام */
+        .telegram-notification {
+            position: relative;
         }
 
-        #showcase p {
-            font-size: 20px;
+        .telegram-notification::after {
+            content: "جديد";
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff4444;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 12px;
+            animation: pulse 1.5s infinite;
         }
 
-        section {
-            padding: 20px 0;
-            border-bottom: #e0e0e0 1px solid;
-        }
-
-        footer {
-            background: #ad1457;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        #about, #contact {
-            margin: 20px 0;
-        }
-
-        h2 {
-            color: #e91e63;
-        }
-
-        form label, form input, form textarea, form button {
-            display: block;
-            width: 100%;
-            margin: 10px 0;
-        }
-
-        form input, form textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        form button {
-            background: #e91e63;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        /* Animations */
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1>فاطمة محمد</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#showcase">الرئيسية</a></li>
-                    <li><a href="#about">من أنا</a></li>
-                    <li><a href="#contact">تواصل معي</a></li>
-                </ul>
-            </nav>
+    <!-- عناصر الخلفية -->
+    <div class="cloud">☁️</div>
+    <div class="cloud" style="top:30%; animation-delay: -5s;">☁️</div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+
+    <div class="container">
+        <header>
+            <div class="teddy-bear">🧸</div>
+            <h1>مرحبا في عالمي الرائع  انا نارا🌈</h1>
+        </header>
+
+        <div class="bio">
+            <h2 style="color: #ff69b4; margin-bottom:15px;">عنوان سحري 🎇</h2>
+            <p style="line-height:1.8; font-size:1.1em;">
+                ✧ فتاة تحب الإبداع والتصميم<br>
+                ✧ مهتمة بتطوير الذات والأناقة<br>
+                ✧ أعشق الفنون اليدوية والحرفية<br>
+                ✧ أسعى لصنع محتوى متميز ومفيد
+            </p>
         </div>
-    </header>
-    <section id="showcase">
-        <div class="container">
-            <h1>مرحبًا بكم في موقعي الشخصي</h1>
-            <p>استكشفوا أعمالي وتعرفوا عليّ أكثر</p>
+
+        <div class="bio">
+            <h2 style="color: #ff69b4; margin-bottom:15px;">إبداعاتي 💎</h2>
+            <p style="line-height:1.8; font-size:1.1em;">
+                ✓ تصميم إكسسوارات مبتكرة<br>
+                ✓ صنع مجسمات فنية<br>
+                ✓ تزيين الأزياء والاكسسوارات<br>
+                ✓ كتابة محتوى إبداعي<br>
+                ✓ تصوير وتحرير الفيديوهات
+            </p>
         </div>
-    </section>
-    <main>
-        <section id="about" class="fade-in">
-            <div class="container">
-                <h2>من أنا</h2>
-                <p>أنا فاطمة محمد،طالبه سادس مابيه حيل .</p>
+
+        <div class="bio" style="text-align:center;">
+            <h2 style="color: #ff69b4; margin-bottom:20px;">لنتواصل! 🦄</h2>
+            <div style="display: flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+                <a href="#" class="telegram-btn telegram-notification">
+                    <i class="fab fa-telegram-plane"></i>
+                    انضم للقناة
+                </a>
+                <a href="#" style="font-size:30px; color:#ff69b4;">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" style="font-size:30px; color:#ff69b4;">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="#" style="font-size:30px; color:#ff69b4;">
+                    <i class="fab fa-pinterest"></i>
+                </a>
             </div>
-        </section>
-        <section id="contact" class="fade-in">
-            <div class="container">
-                <h2>تواصل معي</h2>
-                <form action="#" method="post">
-                    <label for="name">الاسم:</label>
-                    <input type="text" id="name" name="name" required>
-                    
-                    <label for="email">البريد الإلكتروني:</label>
-                    <input type="email" id="email" name="email" required>
-                    
-                    <label for="message">الرسالة:</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
-                    
-                    <button type="submit">إرسال</button>
-                </form>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 فاطمة محمد. جميع الحقوق محفوظة.</p>
         </div>
-    </footer>
+    </div>
+
+    <!-- فقاعة رسائل -->
+    <a href="#" class="message-bubble">
+        <span style="font-size:24px;">✉️</span>
+        <span>تواصل معنا هنا!</span>
+    </a>
+
     <script>
-        // يمكن إضافة وظائف الجافا سكريبت هنا
-        console.log("مرحبًا بكم في موقع فاطمة محمد");
+        // إنشاء نجوم عشوائية
+        function createStars() {
+            const container = document.body;
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(star);
+            }
+        }
+        createStars();
+
+        // تأثير السحب المتحركة
+        document.querySelectorAll('.cloud').forEach(cloud => {
+            cloud.style.left = Math.random() * 100 + 'vw';
+            cloud.style.top = Math.random() * 30 + '%';
+        });
     </script>
 </body>
 </html>
