@@ -3,246 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عالمي الساحر |نارا</title>
+    <title>وطن - مبرمج ومخترق</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Courier New', monospace;
         }
 
         body {
-            background: linear-gradient(45deg, #ffb6c1, #ff69b4);
-            min-height: 100vh;
+            background: #0a0a0a;
+            color: #0f0;
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* أنيميشن السحب */
-        .cloud {
-            position: fixed;
-            font-size: 50px;
-            animation: cloudMove 20s linear infinite;
-            opacity: 0.2;
-            z-index: 1;
-        }
-
-        /* نجوم لامعة */
-        .star {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 2s infinite;
+        .glitch {
+            animation: glitch 3s infinite;
+            text-shadow: 2px 2px #ff00ff;
         }
 
         header {
-            text-align: center;
-            padding: 100px 0 60px;
+            padding: 2rem;
+            border-bottom: 3px solid #0f0;
             position: relative;
         }
 
-        h1 {
-            color: #fff;
-            font-size: 3em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: float 3s ease-in-out infinite;
-            background: linear-gradient(45deg, #ffffff, #ffdde1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .teddy-bear {
-            font-size: 100px;
-            animation: dance 4s ease-in-out infinite;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
-        }
-
-        .bio {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 30px;
-            border-radius: 25px;
-            margin: 25px 0;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(8px);
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .bio:hover {
-            transform: translateY(-5px) rotate(1deg);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-        }
-
-        /* تصميم خاص لرابط التليجرام */
-        .telegram-btn {
-            background: #0088cc;
-            color: white !important;
-            padding: 12px 25px;
-            border-radius: 30px;
-            display: inline-flex;
+        nav {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 10px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            color: #0f0;
             text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,136,204,0.3);
+            margin-left: 2rem;
+            position: relative;
         }
 
-        .telegram-btn:hover {
-            transform: scale(1.1);
-            background: #0077b3;
+        .nav-links a:hover {
+            color: #ff00ff;
         }
 
-        @keyframes cloudMove {
-            0% { transform: translateX(-100vw); }
-            100% { transform: translateX(100vw); }
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        @keyframes dance {
-            0%, 100% { transform: rotate(-5deg) translateY(0); }
-            50% { transform: rotate(5deg) translateY(-20px); }
-        }
-
-        /* فقاعة رسائل متحركة */
-        .message-bubble {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: white;
-            padding: 15px 25px;
-            border-radius: 40px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            animation: bubbleFloat 2s ease-in-out infinite;
+        .hero {
+            height: 80vh;
             display: flex;
             align-items: center;
-            gap: 10px;
-            z-index: 999;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
         }
 
-        @keyframes bubbleFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
         }
 
-        /* تأثير إشعار التليجرام */
-        .telegram-notification {
+        .matrix-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .terminal {
+            background: #000;
+            padding: 2rem;
+            border: 2px solid #0f0;
+            margin: 2rem;
+            max-width: 800px;
+            
+        }
+
+        .terminal::before {
+            content: ".";
+            color: #0f0;
+            margin-right: 1rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .card {
+            background: #111;
+            padding: 2rem;
+            border: 1px solid #0f0;
             position: relative;
+            transition: 0.3s;
         }
 
-        .telegram-notification::after {
-            content: "جديد";
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #ff4444;
-            color: white;
-            padding: 3px 8px;
-            border-radius: 15px;
-            font-size: 12px;
-            animation: pulse 1.5s infinite;
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px #0f0;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+
+        .cyber-button {
+            background: #000;
+            border: 2px solid #0f0;
+            color: #0f0;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .cyber-button:hover {
+            background: #0f0;
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- عناصر الخلفية -->
-    <div class="cloud">☁️</div>
-    <div class="cloud" style="top:30%; animation-delay: -5s;">☁️</div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-
-    <div class="container">
-        <header>
-            <div class="teddy-bear">🧸</div>
-            <h1>مرحبا في عالمي الرائع  انا نارا🌈</h1>
-        </header>
-
-        <div class="bio">
-            <h2 style="color: #ff69b4; margin-bottom:15px;">عنوان سحري 🎇</h2>
-            <p style="line-height:1.8; font-size:1.1em;">
-                ✧ فتاة تحب الإبداع والتصميم<br>
-                ✧ مهتمة بتطوير الذات والأناقة<br>
-                ✧ أعشق الفنون اليدوية والحرفية<br>
-                ✧ أسعى لصنع محتوى متميز ومفيد
-            </p>
-        </div>
-
-        <div class="bio">
-            <h2 style="color: #ff69b4; margin-bottom:15px;">إبداعاتي 💎</h2>
-            <p style="line-height:1.8; font-size:1.1em;">
-                ✓ تصميم إكسسوارات مبتكرة<br>
-                ✓ صنع مجسمات فنية<br>
-                ✓ تزيين الأزياء والاكسسوارات<br>
-                ✓ كتابة محتوى إبداعي<br>
-                ✓ تصوير وتحرير الفيديوهات
-            </p>
-        </div>
-
-        <div class="bio" style="text-align:center;">
-            <h2 style="color: #ff69b4; margin-bottom:20px;">لنتواصل! 🦄</h2>
-            <div style="display: flex; gap:15px; justify-content:center; flex-wrap:wrap;">
-                <a href="https://t.me/JP_lU" class="telegram-btn telegram-notification">
-                    <i class="fab fa-telegram-plane"></i>
-                    انضم للقناة
-                </a>
-                <a href="#" style="font-size:30px; color:#ff69b4;">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" style="font-size:30px; color:#ff69b4;">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-                <a href="#" style="font-size:30px; color:#ff69b4;">
-                    <i class="fab fa-pinterest"></i>
-                </a>
+    <canvas class="matrix-effect" id="matrix"></canvas>
+    
+    <header>
+        <nav>
+            <div class="logo glitch">ja3fr<span style="color: #ff00ff;">M</span></div>
+            <div class="nav-links">
+                <a href="#home">الرئيسية</a>
+                <a href="#skills">المهارات</a>
+                <a href="#projects">المشاريع</a>
+                <a href="#contact">اتصل بي</a>
             </div>
-        </div>
-    </div>
+        </nav>
+    </header>
 
-    <!-- فقاعة رسائل -->
-    <a href="#" class="message-bubble">
-        <span style="font-size:24px;">✉️</span>
-        <span>تواصل معنا هنا!</span>
-    </a>
+    <section class="hero">
+        <h1 class="glitch">مرحبا، أنا وطن</h1>
+        <p>مبرمج ومخترق محترف</p>
+        <div class="terminal">
+            <span>     هلا بيك نورت...</span>
+        </div>
+        <a href="https://t.me/eeceo1" target="_blank" rel="noopener noreferrer">
+            <button class="cyber-button">قناتي ضغط هنا </button>
+        </a>
+    </section>
+
+    <section class="features">
+        <div class="card">
+            <i class="fas fa-code"></i>
+            <h3>تطوير البرمجيات</h3>
+            <p>تطوير   البرمجيات معايير الأمان</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>محارب ابتزاز محترف </h3>
+            <p>  محارب كل من يبتز الاخرين مجاني </p>
+        </div>
+        <div class="card">
+            <i class="fas fa-terminal"></i>
+            <h3> مجر الخاص بي</h3>
+            <p>طريق الدفع الموجودة عند وطن 🥷
+
+                • ماستركارد 
+                
+                • فيزا 
+                
+                • كي كارد 
+                
+                • بيتكوين 
+                
+                • اسياسيل 
+                
+                • زين كاش 
+                
+                • باي بال 
+                
+                • ايتوينز امريكي </p>
+        </div>
+    </section>
 
     <script>
-        // إنشاء نجوم عشوائية
-        function createStars() {
-            const container = document.body;
-            for (let i = 0; i < 50; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + 'vw';
-                star.style.top = Math.random() * 100 + 'vh';
-                star.style.animationDelay = Math.random() * 2 + 's';
-                container.appendChild(star);
+        // مبرمج جعفر
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = '01ZAeemHacker010101';
+        const drops = [];
+        
+        const fontSize = 14;
+        const columns = canvas.width/fontSize;
+
+        for(let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+
+            for(let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+                
+                if(drops[i]*fontSize > canvas.height && Math.random() > 0.975)
+                    drops[i] = 0;
+                drops[i]++;
             }
         }
-        createStars();
 
-        // تأثير السحب المتحركة
-        document.querySelectorAll('.cloud').forEach(cloud => {
-            cloud.style.left = Math.random() * 100 + 'vw';
-            cloud.style.top = Math.random() * 30 + '%';
+        setInterval(drawMatrix, 50);
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         });
     </script>
 </body>
